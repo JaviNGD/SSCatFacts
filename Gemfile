@@ -71,3 +71,6 @@ gem "tailwindcss-rails"
 
 # A Ruby gem to load environment variables from `.env`.
 gem 'dotenv', groups: [:development, :test]
+
+# HTTParty for API requests
+gem 'httparty'
