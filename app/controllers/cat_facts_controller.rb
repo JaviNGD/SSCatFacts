@@ -1,6 +1,7 @@
 require 'httparty'
 
 class CatFactsController < ApplicationController
+    before_action :protect_pages
 
     def index
         response = HTTParty.get('https://catfact.ninja/fact')

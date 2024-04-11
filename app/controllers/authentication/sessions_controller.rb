@@ -1,5 +1,6 @@
 class Authentication::SessionsController < ApplicationController
-
+    skip_before_action :protect_pages
+    
     def new
     end
 
@@ -12,6 +13,12 @@ class Authentication::SessionsController < ApplicationController
         else
             redirect_to new_session_path, alert: "Invalid username"
         end
+    end
+
+    # Destroy the current session
+    def destroy
+        session.delete(:user_id)
+        redirect_to new_session_path, notice: "Logged out successfully!"
     end
 
 end
