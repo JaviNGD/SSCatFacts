@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-        <h1 class="">
-            SSCatFacts
-        </h1>
-    </body>
-</html>
+<div>
+    
+    <h1 class="text-white">SSCatFacts</h1>
+
+    <p><%= link_to "Login", new_session_path, class: "text-blue-300" %></p>
+    <p><%= link_to "Sign in", new_user_path, class: "text-blue-300" %></p>
+</div>
