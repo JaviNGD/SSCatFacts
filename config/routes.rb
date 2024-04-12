@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # Routes for authentication
   namespace :authentication, path: '', as: '' do
-    resources :users, only: [:new, :create]
-    resources :sessions, only: [:new, :create, :destroy]
+    resources :users, only: [:new, :create], path: '/register', path_names: { new: '/' }
+    resources :sessions, only: [:new, :create, :destroy], path: '/login', path_names: { new: '/' }
   end
 
   # Route for the cat facts
