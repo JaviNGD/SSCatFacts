@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
     def index
     end
 
+    def not_found
+    end
+
     private
 
     # Set the current user for the session if the user is logged in
