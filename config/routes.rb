@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Route for the cat facts
   resources :cat_facts, only: [:index]
 
+  # Routes for the favorites
+  resources :favorites, only: [:create]
+
   # Routes for Not Found page
   get '*path', to: 'application#not_found', via: :all
 

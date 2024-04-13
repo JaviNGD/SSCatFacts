@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :favorites, dependent: :destroy
+    has_many :cat_facts, through: :favorites
 
     # username must be present, unique, between 2 and 20 characters long, and only contain letters and numbers
     validates :username,

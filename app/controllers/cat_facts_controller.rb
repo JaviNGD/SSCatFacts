@@ -12,14 +12,20 @@ class CatFactsController < ApplicationController
             # Save the fact to the database
             cat_fact = CatFact.new(fact: message)
             if cat_fact.save
-                @fact = message
+                @fact = fact_db(message)
             else
             # If the fact already exists in the database, display the fact from the database
-                @fact = CatFact.find_by(fact: message).fact
+                @fact = fact_db(message)
             end
         else
             @fact = 'No cat facts available at the moment. Please try again later.'
         end
+    end
+
+    private
+
+    def fact_db(message)
+        CatFact.find_by(fact: message).fact
     end
 
 end

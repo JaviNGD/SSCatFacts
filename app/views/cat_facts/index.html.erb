@@ -4,7 +4,9 @@
     <p><%= @fact %></p>
     <div class="flex"> 
         <button id="new-fact-button" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">New Fact 😺</button>
-        <button class="mt-4 border-2 border-red-700 hover:bg-red-600 font-bold py-2 px-4 rounded">Add to Favorites 💖</button> 
+        <p class="mt-4 border-2 border-red-700 hover:bg-red-600 font-bold py-2 px-4 rounded cursor-pointer">
+            <%= link_to "Add to Favorites 💖", favorites_path(cat_fact_id: get_fact_id), data: {turbo_method: :post} %>
+        </p> 
     </div>
 </div>
 
