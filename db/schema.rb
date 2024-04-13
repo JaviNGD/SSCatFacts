@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_11_020907) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_12_224357) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cat_facts", force: :cascade do |t|
+    t.string "fact", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fact"], name: "index_cat_facts_on_fact", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cat_fact_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_fact_id"], name: "index_favorites_on_cat_fact_id"
+    t.index ["user_id", "cat_fact_id"], name: "index_favorites_on_user_id_and_cat_fact_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -21,4 +38,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_11_020907) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "favorites", "cat_facts"
+  add_foreign_key "favorites", "users"
 end

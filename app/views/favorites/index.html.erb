@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg shadow-black max-w-xl my-10">
+    
+    <h1 class="text-3xl font-bold mb-6">My Favorites 💖</h1>
+
+    <% if @favorites.any? %>
+        <ul class="w-full">
+            <% @favorites.reverse_each do |favorite| %>
+                <li class="flex items-center justify-between border-b-2 border-gray-200 py-4 px-2 hover:bg-slate-200">
+                    <p><span class="font-bold">#Fact <%= favorite.cat_fact.id%></span> <%= favorite.cat_fact.fact %></p>
+                    <%= link_to "💔", favorite_path(favorite.cat_fact.id), data: {turbo_method: :delete} %>
+                </li>
+            <% end %>
+        </ul>
+    <% else %>
+        <p class="text-xl font-bold mb-2">You don't have any favorites yet!</p>
+        <p>Go to the <a href="/cat_facts" class="text-blue-500 font-bold">Cat Facts</a> page to add some!</p>
+    <% end %>
