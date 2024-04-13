@@ -1,24 +1,21 @@
-<div class="flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg shadow-black max-w-xl">
-    
-    <h1 class="text-3xl font-bold mb-6">SSCatFacts</h1>
+<h1 class="text-3xl font-bold mb-6">SSCatFacts</h1>
 
-    <% if !Current.user %>
-        <p class="text-lg mb-4">Please login or sign up to see a cat fact</p>
-        <div class="flex text-white font-bold mb-4">
-            <%= link_to "Login", new_session_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded mr-8" %>
-            <%= link_to "Sign in", new_user_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded" %>
-        </div>
-    <% else %>
-        <p class="text-lg" >Welcome <%= Current.user.username %> !</p>
-        <p class="mb-4">See and save your favorite cat facts</p>
+<% if !Current.user %>
+    <p class="text-lg mb-4">Please login or sign up to see a cat fact</p>
+    <div class="flex text-white font-bold mb-4">
+        <%= link_to "Login", new_session_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded mr-8" %>
+        <%= link_to "Sign in", new_user_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded" %>
+    </div>
+<% else %>
+    <p class="text-lg" >Welcome <%= Current.user.username %> !</p>
+    <p class="mb-4">See and save your favorite cat facts</p>
 
-        <div class="flex text-white font-bold mb-4">
-            <%= link_to "Cat Fact 😺", cat_facts_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded mr-6" %>
-            <%= link_to "My Favorites 💖", favorites_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded" %>
-        </div>
+    <div class="flex text-white font-bold mb-4">
+        <%= link_to "Cat Fact 😺", cat_facts_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded mr-6" %>
+        <%= link_to "My Favorites 💖", favorites_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded" %>
+    </div>
         
-        <%= link_to "Favorites facts from the community", cat_facts_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-6" %>
-        <%= link_to "Logout", session_path(Current.user.id), data: { turbo_method: :delete }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
-    <% end %>
+    <%= link_to "Favorites facts from the community 🌟", community_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-6" %>
+    <%= link_to "Logout", session_path(Current.user.id), data: { turbo_method: :delete }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>
 
-</div>

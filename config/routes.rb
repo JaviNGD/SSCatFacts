@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Routes for the favorites
   resources :favorites, only: [:index, :create, :destroy]
+  get '/community', to: 'favorites#community'
 
   # Routes for Not Found page
   get '*path', to: 'application#not_found', via: :all
