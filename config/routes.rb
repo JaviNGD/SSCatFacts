@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :cat_facts, only: [:index]
 
   # Routes for the favorites
-  resources :favorites, only: [:create]
+  resources :favorites, only: [:index, :create]
 
   # Routes for Not Found page
   get '*path', to: 'application#not_found', via: :all
