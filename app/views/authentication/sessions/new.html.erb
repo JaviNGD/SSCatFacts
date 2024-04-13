@@ -1,18 +1,16 @@
-<div class="flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg shadow-black">
-    <h1 class="text-3xl font-bold mb-8">Log In</h1>
+<h1 class="text-3xl font-bold mb-8">Log In</h1>
 
-    <%= form_with(url: sessions_path) do |form| %>
-        <div class="mb-4">
-            <%= form.label :username, class: "block text-sm font-bold mb-2" %>
-            <%= form.text_field :username, required: true, class: "shadow border rounded w-full py-2 px-3" %>
-        </div>
-
-        <div class="flex justify-center">
-            <%= form.submit "Log In", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-        </div>
-    <% end %>
-
-    <div class="mt-4">
-        <p> Don't have an account? <%= link_to "Sign Up", new_user_path, class: "text-blue-500 hover:text-blue-700 underline font-bold" %></p>
+<%= form_with(url: sessions_path) do |form| %>
+    <div class="mb-4">
+        <%= form.label :username, class: "block text-sm font-bold mb-2" %>
+        <%= form.text_field :username, required: true, class: "shadow border rounded w-full py-2 px-3" %>
     </div>
+
+    <div class="flex justify-center">
+        <%= form.submit "Log In", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+<% end %>
+
+<div class="mt-4">
+    <p> Don't have an account? <%= link_to "Sign Up", new_user_path, class: "text-blue-500 hover:text-blue-700 underline font-bold" %></p>
 </div>

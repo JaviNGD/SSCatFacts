@@ -17,4 +17,9 @@ class FavoritesController < ApplicationController
         redirect_to favorites_path
     end
     
+    # Display most favorited cat facts for the community
+    def community
+        @favorites = Favorite.group(:cat_fact_id).count
+        @top_facts = Favorite.group(:cat_fact).count.sort_by { |_, count| -count }.first(3) || []
+    end
 end
