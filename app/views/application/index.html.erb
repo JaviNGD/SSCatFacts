@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-6">SSCatFacts</h1>
+<h1 class="text-3xl font-bold mb-6">SSCatFacts 😺</h1>
 
 <% if !Current.user %>
     <p class="text-lg mb-4">Please login or sign up to see a cat fact</p>
@@ -10,12 +10,12 @@
     <p class="text-lg" >Welcome <%= Current.user.username %> !</p>
     <p class="mb-4">See and save your favorite cat facts</p>
 
-    <div class="flex text-white font-bold mb-4">
-        <%= link_to "Cat Fact 😺", cat_facts_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded mr-6" %>
-        <%= link_to "My Favorites 💖", favorites_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded" %>
+    <div class="flex text-white font-bold mb-4 w-full">
+        <%= link_to "Cat Fact 😺", cat_facts_path, class: "bg-blue-500 hover:bg-blue-700 py-2 px-6 rounded mr-6" %>
+        <%= link_to "My Favorites 💖", favorites_path, class: "bg-red-500 hover:bg-red-600 py-2 px-6 rounded" %>
     </div>
         
     <%= link_to "Favorites facts from the community 🌟", community_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-6" %>
-    <%= link_to "Logout", session_path(Current.user.id), data: { turbo_method: :delete }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to "Logout", session_path(Current.user.id), data: { turbo_method: :delete }, class: "bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
 
