@@ -1,10 +1,10 @@
-<h1 class="text-3xl font-bold mb-6">Community Favorites 🌟</h1>
-<h2 class="text-xl font-bold mb-4">Top 3 Favorites 🏅</h2>
+<h1 class="text-3xl font-bold mb-6 text-center">Community Favorites 🌟</h1>
+<h2 class="text-xl font-bold mb-4 text-center">Top 3 Favorites 🏅</h2>
 
 <% if @favorites.any? %>
     <ul class="text-left">
     <% @top_facts.each_with_index do |(fact, count), index| %>
-        <li class="flex items-center justify-between border-b-2 border-gray-200 py-4 px-2">    
+        <li class="flex justify-between border-b-2 border-gray-200 py-4 px-2">    
             <% medals = ["🥇", "🥈", "🥉"] %>
             <%= medals[index] %> 
             <p class="mx-4"><span class="font-bold">Fact #<%= fact.id %> </span><%= fact.fact %></p>
