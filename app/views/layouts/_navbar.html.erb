@@ -1,0 +1,41 @@
+<nav class="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-6 text-sm bg-white font-light">
+    <div class="flex items-center">
+        <div class="mr-6">
+            <%= link_to "SSCatFacts 😺", root_path, class: "text-blue-300 font-semibold text-xl" %>
+        </div>
+    </div>
+    <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+    <ul id="menu" class="hidden md:flex items-center gap-4 font-bold">
+        <% if !Current.user %>
+            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2 m-2"> <%= link_to "Login", new_session_path %></li>
+            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2 m-2"><%= link_to "Sign in", new_user_path %></li>
+        <% else %>
+            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2"><%= link_to "Cat Fact 😺", cat_facts_path%></li>
+            <li class="border-2 border-red-500 hover:bg-red-400 shadow-lg rounded-lg p-2"><%= link_to "My Favorites 💖", favorites_path %></li>
+            <li class="border-2 border-green-500 hover:bg-green-400 shadow-lg rounded-lg p-2"><%= link_to "Favorites facts from the community 🌟", community_path %></li>
+            <li class="border-2 border-red-800 hover:bg-red-700 shadow-lg rounded-lg p-2"><%= link_to "Logout", session_path(Current.user.id), data: { turbo_method: :delete } %></li>
+        <% end %>
+    </ul>
+</nav>
+
+// function to toggle the menu on mobile
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+
+        function hideMenu() {
+            menu.classList.add("hidden");
+        }
+
+        menuToggle.addEventListener("click", function() {
+            menu.classList.toggle("hidden");
+        });
+    });
+</script>
