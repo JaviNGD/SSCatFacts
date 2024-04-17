@@ -19,7 +19,7 @@ Aplicación que permite crear un usuario e iniciar sesión, agregar a favoritos 
 
 ### Clonar el proyecto
 ```plaintext
-https://github.com/JaviNGD/SSCatFacts.git
+git clone https://github.com/JaviNGD/SSCatFacts.git
 ```
 
 ### Ir al directorio del proyecto
