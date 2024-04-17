@@ -13,8 +13,8 @@
     </div>
     <ul id="menu" class="hidden md:flex items-center gap-4 font-bold">
         <% if !Current.user %>
-            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2 m-2"> <%= link_to "Login", new_session_path %></li>
-            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2 m-2"><%= link_to "Sign in", new_user_path %></li>
+            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2"> <%= link_to "Login", new_session_path %></li>
+            <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2"><%= link_to "Sign in", new_user_path %></li>
         <% else %>
             <li class="border-2 border-sky-500 hover:bg-sky-400 shadow-lg rounded-lg p-2"><%= link_to "Cat Fact 😺", cat_facts_path%></li>
             <li class="border-2 border-red-500 hover:bg-red-400 shadow-lg rounded-lg p-2"><%= link_to "My Favorites 💖", favorites_path %></li>
@@ -23,19 +23,3 @@
         <% end %>
     </ul>
 </nav>
-
-// function to toggle the menu on mobile
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuToggle = document.getElementById("menu-toggle");
-        const menu = document.getElementById("menu");
-
-        function hideMenu() {
-            menu.classList.add("hidden");
-        }
-
-        menuToggle.addEventListener("click", function() {
-            menu.classList.toggle("hidden");
-        });
-    });
-</script>

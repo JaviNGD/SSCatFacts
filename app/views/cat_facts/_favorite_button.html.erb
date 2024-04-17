@@ -1,5 +1,7 @@
-<% if @added_to_favorites %>
-    <%= link_to "Remove from Favorites 💔", favorite_path(get_fact_id), data: { turbo_method: :delete }, class: "bg-red-400 hover:bg-red-600 py-2 px-4 rounded mr-4" %>
-<% else %>
-    <%= link_to "Add to Favorites 💖", favorites_path(cat_fact_id: get_fact_id), data: { turbo_method: :post }, class: "bg-red-600 hover:bg-red-700 py-2 px-4 rounded mr-4" %>
+<% if get_fact_id != -1 %>
+    <% if @added_to_favorites %>
+        <%= link_to "Remove from Favorites 💔", favorite_path(get_fact_id), data: { turbo_method: :delete }, class: "bg-red-400 hover:bg-red-600 py-2 px-4 rounded mr-4" %>
+    <% else %>
+        <%= link_to "Add to Favorites 💖", favorites_path(cat_fact_id: get_fact_id), data: { turbo_method: :post }, class: "bg-red-600 hover:bg-red-700 py-2 px-4 rounded mr-4" %>
+    <% end %>
 <% end %>
