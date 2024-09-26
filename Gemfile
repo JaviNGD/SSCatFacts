@@ -74,3 +74,4 @@ gem 'dotenv', groups: [:development, :test]
 
 # HTTParty for API requests
 gem 'httparty'
+gem "webrick", ">= 1.8.2"
